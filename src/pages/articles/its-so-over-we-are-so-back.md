@@ -1,0 +1,12 @@
+---
+layout: ~/layouts/ArticleLayout.astro
+title: "It's so over 🔄 We are so back"
+date: "2025-07-06"
+week: 4
+---
+
+The last couple of weeks have been great. I was getting lots of work done, eating right, and spending my free time working on personal projects. Then out of the blue, I just lost it yesterday. I was at the gym, and after failing a set, I was just so over it; I packed up and left without even completing the first exercise. For me, this is how it usually starts. I can half ass the rest of it, but at the gym that bar is either going up or not. And so here I am, back in the it's so over part of the cycle.
+
+For me, that first failure just seems to open the floodgates. I can't shrug it off and move on. Instead, I must now do everything that I've been depriving myself of. Uber Eats is on the way with six thousand calories for me to eat in 30 minutes as if it's my last meal and all the brain rot I've been avoiding is back on my phone. I will be doing absolutely nothing besides scrolling through slop on my phone till I fall asleep. That's not too bad, I could call it a cheat day and be back on the ball tomorrow. Yeah right! Obviously, I went to bed way too late so the sleep schedule is out the window. I drag myself out of bed and oh wow if it isn't the consequences of my actions. I have no energy because my body's working on processing the ungodly amount of carbs and sugar I had the night before. Guess I have no energy so I'll get back to scrolling. It's now the evening and all I've done today is try to distract myself from the failure of yesterday. This never works well so what do I do to comfort myself? Same thing as the day before. And so the vicious cycle is set.
+
+The Uber Eats bags pile up as the days blend together. It's now been a week of absolute degeneracy. And then... it just flips. There's no divine revelation or change of circumstances. I just one day decide to stop doing this dumb shit and switch to doing what I always knew I had to. I'll take out the trash, head back to the gym, and have a meal with some nutritional value. I've spent days reflecting on this cycle and thinking about what I can do to prevent it. I got nothing. The answer is probably something about "balance" and "you need to relax once in a while", but I'm just not there yet. For the time being, I'm taking comfort in the fact that with a 51% win rate and enough games, you're guaranteed to hit 6K MMR.
