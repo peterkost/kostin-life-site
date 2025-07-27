@@ -1,0 +1,11 @@
+name = "kostin-life"
+main = "./dist/_worker.js/index.js"
+compatibility_date = "2025-06-29"
+compatibility_flags = [ "nodejs_compat" ]
+
+[assets]
+binding = "ASSETS"
+directory = "./dist"
+
+[observability]
+enabled = true
