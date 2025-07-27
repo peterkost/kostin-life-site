@@ -1,5 +1,5 @@
 name = "kostin-life"
-main = "./dist/_worker.js/index.js"
+main = "src/worker.ts"
 compatibility_date = "2025-06-29"
 compatibility_flags = [ "nodejs_compat" ]
 
@@ -9,3 +9,12 @@ directory = "./dist"
 
 [observability]
 enabled = true
+
+[triggers]
+crons = ["*/20 * * * *"]
+
+[[ d1_databases ]]
+binding = "DB"
+database_name = "kostin-life"
+database_id = "fdf61882-2904-4d16-adac-683a8a1439fd"
+migrations_dir = "drizzle"
