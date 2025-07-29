@@ -1,11 +1,12 @@
 import { SpotifyApi } from "@spotify/web-api-ts-sdk";
 import { drizzle, DrizzleD1Database } from "drizzle-orm/d1";
 import { listeningHistory, songMetadata, spotifyAuth } from "../db/schemas";
+import * as schema from "../db/schemas";
 
 import type { AccessToken } from "@spotify/web-api-ts-sdk";
 
 export const saveRecentlyPlayed = async (env: Env) => {
-  const db = drizzle(env.DB);
+  const db = drizzle(env.DB, { schema });
   const token = await getToken(db, env);
 
   const sdk = SpotifyApi.withAccessToken(env.SPOTIFY_CLIENT_ID, token);
@@ -43,18 +44,14 @@ export const saveRecentlyPlayed = async (env: Env) => {
 };
 
 const getToken = async (
-  db: DrizzleD1Database<Record<string, never>> & { $client: D1Database },
+  db: DrizzleD1Database<typeof schema> & { $client: D1Database },
   env: Env,
 ) => {
   console.log("Refreshing token");
-  const rows = await db
-    .select()
-    .from(spotifyAuth)
-    .where(spotifyAuth.id.equals("default"))
-    .limit(1)
-    .all();
+  const row = await db.query.spotifyAuth.findFirst();
 
-  const currentRefreshToken = rows[0].refreshToken;
+  if (!row) throw new Error("No refresh token in DB");
+  const currentRefreshToken = row.refreshToken;
 
   const body = new URLSearchParams();
   body.append("grant_type", "refresh_token");
