@@ -1,27 +1,19 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Kostin.Life</title>
-	</head>
-  <body>
-    <div>
-      <p>KOSTIN.LIFE</p>
-      <a href="articles/i-listen-to-music-all-the-time-but-am-incapable-of-talking-about-it">I listen to music all the time, but am incapable of talking about it</a>
-      <a href="articles/nothing-compares-to-running">Nothing Compares to Running</a>
-      <a href="articles/how-I-manage-my-photos">How I Manage My Photos</a>
-      <a href="articles/its-so-over-we-are-so-back">It's so over 🔄 We are so back</a>
-      <a href="articles/on-two-years-of-neovim.html">On Two Years of Neovim</a>
-      <a href="articles/memories-of-bogota.html">Memories of Bogota</a>
-      <a href="articles/the-optimal-setup-to-spend-canadian-dollars.html"
-        >The Optimal Setup to Spend Canadian Dollars Abroad</a
-      >
-      <a href="articles/for-gods-sake-just-publish-it.html"
-        >For God's Sake Just Publish It</a>
-    </div>
-  </body>
-</html>
+<BaseLayout title="kostin.life", description="Assorted ramblings">
+  <div class="w-fit text-center">
+    <p class="pb-4">KOSTIN.LIFE</p>
+    <a class="link" href="articles/i-listen-to-music-all-the-time-but-am-incapable-of-talking-about-it">I listen to music all the time, but am incapable of talking about it</a><br>
+    <a class="link" href="articles/nothing-compares-to-running">Nothing Compares to Running</a><br>
+    <a class="link" href="articles/how-I-manage-my-photos">How I Manage My Photos</a><br>
+    <a class="link" href="articles/its-so-over-we-are-so-back">It's so over 🔄 We are so back</a><br>
+    <a class="link" href="articles/on-two-years-of-neovim.html">On Two Years of Neovim</a><br>
+    <a class="link" href="articles/memories-of-bogota.html">Memories of Bogota</a><br>
+    <a class="link" href="articles/the-optimal-setup-to-spend-canadian-dollars.html"
+      >The Optimal Setup to Spend Canadian Dollars Abroad</a
+    ><br>
+    <a class="link" href="articles/for-gods-sake-just-publish-it.html"
+      >For God's Sake Just Publish It</a>
+  </div>
+</BaseLayout>
