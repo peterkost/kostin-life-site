@@ -1,7 +1,13 @@
 import { SpotifyApi } from "@spotify/web-api-ts-sdk";
 import { drizzle, DrizzleD1Database } from "drizzle-orm/d1";
-import { listeningHistory, songMetadata, spotifyAuth } from "../db/schemas";
+import {
+  listeningHistory,
+  songMetadata,
+  spotifyAuth,
+  weeklyMostPlayed,
+} from "../db/schemas";
 import * as schema from "../db/schemas";
+import { sql } from "drizzle-orm";
 
 import type { AccessToken } from "@spotify/web-api-ts-sdk";
 
@@ -41,6 +47,26 @@ export const saveRecentlyPlayed = async (env: Env) => {
       })
       .onConflictDoNothing();
   });
+};
+
+export const updateWeeklyPlayed = async (env: Env) => {
+  const db = drizzle(env.DB, { schema });
+  const sevenDaysAgo = new Date(
+    Date.now() - 7 * 24 * 60 * 60 * 1000,
+  ).toISOString();
+
+  await db.delete(weeklyMostPlayed);
+
+  await db.insert(weeklyMostPlayed).values(
+    await db
+      .select({
+        id: listeningHistory.id,
+        playCount: sql<number>`count(*)`.as("playCount"),
+      })
+      .from(listeningHistory)
+      .where(sql`${listeningHistory.timestamp} > ${sevenDaysAgo}`)
+      .groupBy(listeningHistory.id),
+  );
 };
 
 const getToken = async (

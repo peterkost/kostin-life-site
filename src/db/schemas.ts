@@ -28,3 +28,8 @@ export const spotifyAuth = table("spotify_auth", {
   refreshToken: t.text("refresh_token").notNull(),
   updatedAt: t.integer("updated_at").notNull(),
 });
+
+export const weeklyMostPlayed = table("weekly_most_played", {
+  id: t.text().notNull().unique(),
+  playCount: t.integer().notNull(),
+});
