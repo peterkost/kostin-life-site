@@ -1,6 +1,8 @@
 ---
 export const prerender = false
 
+import BaseLayout from '../layouts/BaseLayout.astro';
+
 import { drizzle } from "drizzle-orm/d1";
 import { eq, desc } from "drizzle-orm";
 import * as schema from "../db/schemas";
@@ -23,22 +25,14 @@ const lastPlayed = await db
   )
   .orderBy(desc(schema.listeningHistory.timestamp))
   .limit(10);
-
-console.log("lastPlayed:", lastPlayed)
 ---
 
-<html>
-  <head>
-    <title>Last Played Songs</title>
-  </head>
-  <body>
-    {lastPlayed.map((song) => (
-      <p>
-        <a href={song.url} target="_blank" rel="noopener noreferrer">
-          {song.title}
-        </a>
-      </p>
-    ))}
-  </body>
-</html>
-
+<BaseLayout title="Music", description="Stats about what I've been listenting to">
+  {lastPlayed.map((song) => (
+    <p>
+      <a href={song.url} target="_blank" rel="noopener noreferrer">
+        {song.title}
+      </a>
+    </p>
+  ))}
+</BaseLayout>
