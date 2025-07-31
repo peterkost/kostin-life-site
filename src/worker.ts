@@ -1,5 +1,5 @@
 import * as app from "../dist/_worker.js/index.js";
-import { saveRecentlyPlayed } from "./api/spotify.js";
+import { saveRecentlyPlayed, updateWeeklyPlayed } from "./api/spotify.ts";
 
 export default {
   fetch: app.default.fetch,
@@ -10,5 +10,6 @@ export default {
     ctx: ExecutionContext,
   ) {
     await saveRecentlyPlayed(env);
+    await updateWeeklyPlayed(env);
   },
 };
