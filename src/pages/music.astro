@@ -30,7 +30,7 @@ const lastPlayed = await db
 <BaseLayout title="Music", description="Stats about what I've been listenting to">
   {lastPlayed.map((song) => (
     <p>
-      <a href={song.url} target="_blank" rel="noopener noreferrer">
+      <a class="link" href={song.url} target="_blank" rel="noopener noreferrer">
         {song.title}
       </a>
     </p>
