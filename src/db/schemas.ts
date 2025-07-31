@@ -30,6 +30,6 @@ export const spotifyAuth = table("spotify_auth", {
 });
 
 export const weeklyMostPlayed = table("weekly_most_played", {
-  id: t.text().notNull().unique(),
+  id: t.text().primaryKey(),
   playCount: t.integer().notNull(),
 });
