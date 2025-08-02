@@ -8,14 +8,14 @@ interface Props {
 
 const { title, description } = Astro.props;
 ---
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <meta charset="UTF-8">
     <title>{title}</title>
     <meta name="description" content={description}>
     <meta name="viewport" content="width=device-width">
   </head>
-  <body class="font-sans">
+  <body class="h-full font-sans">
     <slot />
   </body>
 </html>

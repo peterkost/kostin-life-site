@@ -25,14 +25,82 @@ const lastPlayed = await db
   )
   .orderBy(desc(schema.listeningHistory.timestamp))
   .limit(10);
+
+  const weeklyTop = await db.select({title: schema.songMetadata.name, url: schema.songMetadata.url, playCount: schema.weeklyMostPlayed.playCount}).from(schema.weeklyMostPlayed).innerJoin(schema.songMetadata, eq(schema.weeklyMostPlayed.id, schema.songMetadata.id))
+  .orderBy(desc(schema.weeklyMostPlayed.playCount))
+  .limit(10);
 ---
 
 <BaseLayout title="Music", description="Stats about what I've been listenting to">
-  {lastPlayed.map((song) => (
-    <p>
-      <a class="link" href={song.url} target="_blank" rel="noopener noreferrer">
-        {song.title}
-      </a>
-    </p>
-  ))}
+<main class="flex flex-col md:flex-row justify-center items-start gap-4 p-4 min-h-screen">
+  <table class="table-auto w-full border-collapse border border-gray-300 max-w-md">
+    <caption class="text-lg font-semibold mb-2">Most Played (7 Day)</caption>
+    <thead>
+      <tr class="bg-gray-100">
+        <th scope="col" class="border border-gray-300 px-4 py-2 text-left">Song</th>
+        <th scope="col" class="border border-gray-300 px-4 py-2 text-right">Play Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      {weeklyTop.map((song) => (
+        <tr class="hover:bg-gray-50" key={song.url}>
+          <td class="border border-gray-300 px-4 py-2">
+            <a
+              class="text-blue-600 hover:underline"
+              href={song.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {song.title}
+            </a>
+          </td>
+          <td class="border border-gray-300 px-4 py-2 text-right">{song.playCount}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <table class="table-auto w-full border-collapse border border-gray-300 max-w-md">
+    <caption class="text-lg font-semibold mb-2">Recently Played</caption>
+    <thead>
+      <tr class="bg-gray-100">
+        <th scope="col" class="border border-gray-300 px-4 py-2 text-left">Song</th>
+        <th scope="col" class="border border-gray-300 px-4 py-2 text-right">Time (EDT)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {lastPlayed.map((song) => (
+        <tr class="hover:bg-gray-50" key={song.url}>
+          <td class="border border-gray-300 px-4 py-2">
+            <a
+              class="text-blue-600 hover:underline"
+              href={song.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {song.title}
+            </a>
+          </td>
+
+
+<td class="border border-gray-300 px-4 py-2 text-right whitespace-nowrap">
+  {new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(new Date(song.timestamp))}
+</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</main>
+
 </BaseLayout>
+
+
+
+
