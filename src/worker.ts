@@ -10,6 +10,6 @@ export default {
     ctx: ExecutionContext,
   ) {
     await saveRecentlyPlayed(env);
-    // await updateWeeklyPlayed(env);
+    await updateWeeklyPlayed(env);
   },
 };

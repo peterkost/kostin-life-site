@@ -7,7 +7,7 @@ import {
   weeklyMostPlayed,
 } from "../db/schemas";
 import * as schema from "../db/schemas";
-import { sql } from "drizzle-orm";
+import { sql, gt } from "drizzle-orm";
 
 import type { AccessToken } from "@spotify/web-api-ts-sdk";
 
@@ -57,16 +57,17 @@ export const updateWeeklyPlayed = async (env: Env) => {
 
   await db.delete(weeklyMostPlayed);
 
-  await db.insert(weeklyMostPlayed).values(
-    await db
+  const results = await db
       .select({
         id: listeningHistory.id,
         playCount: sql<number>`count(*)`.as("playCount"),
       })
       .from(listeningHistory)
       .where(sql`${listeningHistory.timestamp} > ${sevenDaysAgo}`)
-      .groupBy(listeningHistory.id),
-  );
+    .groupBy(listeningHistory.id)
+    .having(({ playCount }) => gt(playCount, 2));
+
+  await db.insert(weeklyMostPlayed).values(results);
 };
 
 const getToken = async (
