@@ -1,5 +1,15 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 .link {
   @apply hover:underline text-blue-700 hover:text-blue-900 visited:text-violet-800;
+}
+
+.prose p:has(+ h1),
+.prose p:has(+ h2),
+.prose p:has(+ h3),
+.prose p:has(+ h4),
+.prose p:has(+ h5),
+.prose p:has(+ h6) {
+  margin-bottom: 0;
 }
