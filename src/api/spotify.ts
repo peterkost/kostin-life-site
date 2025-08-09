@@ -58,14 +58,16 @@ export const updateWeeklyPlayed = async (env: Env) => {
   await db.delete(weeklyMostPlayed);
 
   const results = await db
-      .select({
-        id: listeningHistory.id,
-        playCount: sql<number>`count(*)`.as("playCount"),
-      })
-      .from(listeningHistory)
-      .where(sql`${listeningHistory.timestamp} > ${sevenDaysAgo}`)
+    .select({
+      id: listeningHistory.id,
+      playCount: sql<number>`count(*)`.as("playCount"),
+    })
+    .from(listeningHistory)
+    .where(sql`${listeningHistory.timestamp} > ${sevenDaysAgo}`)
     .groupBy(listeningHistory.id)
-    .having(({ playCount }) => gt(playCount, 2));
+    .having(({ playCount }) => gt(playCount, 2))
+    .orderBy(sql`playCount DESC`)
+    .limit(10);
 
   await db.insert(weeklyMostPlayed).values(results);
 };
