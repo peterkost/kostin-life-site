@@ -11,8 +11,8 @@ const { title, description, date, week } = frontmatter;
       <slot />
     </article>
     <footer class="text-sm text-gray-500">
-      <p class="!mb-1"><em>Week {week}/52</em></p>
-      <p class="!m-0"><em>Published on {date}</em></p>
+      {week && <p class="!mb-1"><em>Week {week}/52</em></p>}
+      {date && <p class="!m-0"><em>Published on {date}</em></p>}
     </footer>
   </main>
 </BaseLayout>
