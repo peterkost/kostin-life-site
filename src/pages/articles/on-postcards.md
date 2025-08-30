@@ -12,7 +12,7 @@ If I’m on vacation and visiting several touristy destinations, I’ll be on th
 
 By far the best country for postcards is Vietnam. I suspect it’s because of the stunning [Saigon Central Post Office](https://maps.app.goo.gl/7axLpuWStB2dZq3R8?g_st=ipc). I always send out  postcards from the central post office, but this is the only one I’ve ever seen packed with tourists sending out cards. The popularity of this attraction makes postcards, and really good ones at that, a breeze to come by throughout the country. By far my favourite shop for postcards anywhere was [Humanity Hanoi](https://maps.app.goo.gl/NXcBMbKX9e8jphTu6?g_st=ipc). 
 
-Writing the messages is great. Much like this blog, I write what’s on my mind at the time. It makes the cards a snapshot of a time and place. Sometimes the recipients will mention something I wrote to them, and at first I’ll have no recollection of it. But upon a bit of thought, I get the jolt of a memory I had all but forgotten. 
+Much like this blog, I write what’s on my mind at the time. It makes the cards a snapshot of a time and place. Sometimes the recipients will mention something I wrote to them, and at first I’ll have no recollection of it. But upon a bit of thought, I get the jolt of a memory I had all but forgotten. 
 
 The lossy nature of the postal service adds to the romance of the medium. Sometimes I’ll write a card to someone I haven’t spoken to in years. I send it out, and it’s for the universe to decide if they receive it or not. Perhaps it gets lost, perhaps they moved, or maybe they get it and have no desire to say anything back.
 
