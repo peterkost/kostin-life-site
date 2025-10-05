@@ -4,6 +4,7 @@ title: "Just Be Honest"
 description: "On lying to employers, yourself, and others"
 date: "2025-10-05"
 week: 17
+location: Bangkok
 ---
 
 I graduated from university with a computer science degree and no practical experience. I didn't do any side projects. And never even applied to internships because I was spending all my free time working a pretty sweet merchandising job for Pepsi. At the time, this did not bother me. I really believed I could fake my way through interviews. Looking back, I realize how foolish this notion was.
